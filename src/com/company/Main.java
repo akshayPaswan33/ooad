@@ -11,7 +11,7 @@ public class Main {
         Inventory inventory = new Inventory();
         initializeInventory(inventory);
 
-        Guitar searchGuitar = new Guitar(null,"1", Builder.MARTIN, Type.ELECTRIC, Wood.CEDAR,Wood.CEDAR,0);
+        GuitarSpec searchGuitar = new GuitarSpec("1", Builder.MARTIN, Type.ELECTRIC, Wood.CEDAR,Wood.CEDAR);
         List<Guitar> guitars = inventory.search(searchGuitar);
         if(guitars!=null) System.out.println(guitars.size());
     }
