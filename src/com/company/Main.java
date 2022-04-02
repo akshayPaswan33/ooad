@@ -2,6 +2,8 @@ package com.company;
 
 import com.company.guitarshop.*;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,8 +12,8 @@ public class Main {
         initializeInventory(inventory);
 
         Guitar searchGuitar = new Guitar(null,"1", Builder.MARTIN, Type.ELECTRIC, Wood.CEDAR,Wood.CEDAR,0);
-        Guitar guitar = inventory.search(searchGuitar);
-        if(guitar!=null) System.out.println(guitar);
+        List<Guitar> guitars = inventory.search(searchGuitar);
+        if(guitars!=null) System.out.println(guitars.size());
     }
 
     private static void initializeInventory(Inventory inventory) {

@@ -21,13 +21,14 @@ public class Inventory {
         return null;
     }
 
-    public Guitar search(Guitar searchGuitar) {
+    public List<Guitar> search(Guitar searchGuitar) {
         if(searchGuitar.getBackWood()==null || searchGuitar.getFrontWood()==null || searchGuitar.getBuilder()==null || searchGuitar.getModel()==null || searchGuitar.getType()==null) return null;
+        List<Guitar> result = new LinkedList<>();
         for(Guitar guitar : guitars) {
             if(searchGuitar.getType().equals(guitar.getType()) && searchGuitar.getModel().equals(guitar.getModel())
             && searchGuitar.getBuilder().equals(guitar.getBuilder()) && searchGuitar.getFrontWood().equals(guitar.getFrontWood())
-            && searchGuitar.getBackWood().equals(guitar.getBackWood())) return guitar;
+            && searchGuitar.getBackWood().equals(guitar.getBackWood())) result.add(guitar);
         }
-        return null;
+        return result;
     }
 }
