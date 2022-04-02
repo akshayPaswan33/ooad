@@ -11,13 +11,13 @@ public class Main {
         Inventory inventory = new Inventory();
         initializeInventory(inventory);
 
-        GuitarSpec searchGuitar = new GuitarSpec("1", Builder.MARTIN, Type.ELECTRIC, Wood.CEDAR,Wood.CEDAR);
+        GuitarSpec searchGuitar = new GuitarSpec("1", Builder.MARTIN, Type.ELECTRIC, Wood.CEDAR,Wood.CEDAR,12);
         List<Guitar> guitars = inventory.search(searchGuitar);
         if(guitars!=null) System.out.println(guitars.size());
     }
 
     private static void initializeInventory(Inventory inventory) {
-        inventory.addGuitar("1",20, "1", Wood.CEDAR, Wood.CEDAR, Type.ELECTRIC, Builder.MARTIN);
-        inventory.addGuitar("2",10, "1", Wood.BRAZILLIAN_ROSEWOOD, Wood.INDIAN_ROSEWOOD, Type.ACOUSTIC, Builder.PRS);
+        inventory.addGuitar("1",20, new GuitarSpec("1",  Builder.MARTIN, Type.ELECTRIC, Wood.CEDAR, Wood.CEDAR,12));
+        inventory.addGuitar("2",10, new GuitarSpec("1",  Builder.FENDER, Type.ACOUSTIC, Wood.BRAZILLIAN_ROSEWOOD, Wood.INDIAN_ROSEWOOD,6));
     }
 }
