@@ -11,6 +11,9 @@ public class Inventory {
     }
 
     public void addInstrument(String serialNumber, double price, InstrumentSpec spec){
+
+        //problematic code, each time we add a new type of instrument we be creating new if statement
+
         Instrument instrument = null;
         if(spec instanceof GuitarSpec) {
             instrument = new Guitar(serialNumber, price, (GuitarSpec) spec);
