@@ -4,29 +4,28 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Inventory {
-    private final List<Guitar> guitars;
+    private final List<Instrument> instruments;
 
     public Inventory() {
-        guitars = new LinkedList<Guitar>();
+        instruments = new LinkedList<Instrument>();
     }
 
-    public void addGuitar(String serialNumber, double price, GuitarSpec spec){
-        guitars.add(new Guitar(serialNumber,price, spec));
-    }
-
-    public Guitar getGuitar(String serialNumber) {
-        for(Guitar guitar : guitars) {
-            if(guitar.getSerialNumber().equals(serialNumber)) return guitar;
+    public void addInstrument(String serialNumber, double price, InstrumentSpec spec){
+        Instrument instrument = null;
+        if(spec instanceof GuitarSpec) {
+            instrument = new Guitar(serialNumber, price, (GuitarSpec) spec);
+        }else if(spec instanceof MandolinSpec) {
+            instrument = new Mandolin(serialNumber, price, (MandolinSpec) spec);
         }
-        return null;
+        if(instrument!=null) instruments.add(instrument);
     }
 
     //now adding and removing property from GuitarSpec won't have affect here.
-    public List<Guitar> search(GuitarSpec searchSpec) {
-        List<Guitar> result = new LinkedList<>();
-        for(Guitar guitar : guitars) {
-            GuitarSpec spec = guitar.getSpec();
-            if(spec.equals(searchSpec)) result.add(guitar);
+    public List<Instrument> search(InstrumentSpec instrumentSpec) {
+        List<Instrument> result = new LinkedList<>();
+        for(Instrument instrument : instruments) {
+            InstrumentSpec spec = instrument.getInstrumentSpec();
+            if(spec.equals(instrumentSpec)) result.add(instrument);
         }
         return result;
     }
