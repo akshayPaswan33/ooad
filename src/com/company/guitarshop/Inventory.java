@@ -21,6 +21,7 @@ public class Inventory {
         return null;
     }
 
+    //now adding and removing property from GuitarSpec won't have affect here.
     public List<Guitar> search(GuitarSpec searchSpec) {
         List<Guitar> result = new LinkedList<>();
         for(Guitar guitar : guitars) {
