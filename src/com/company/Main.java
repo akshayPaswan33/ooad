@@ -2,7 +2,9 @@ package com.company;
 
 import com.company.guitarshop.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
@@ -11,14 +13,28 @@ public class Main {
         Inventory inventory = new Inventory();
         initializeInventory(inventory);
 
-        InstrumentSpec searchSpec = new GuitarSpec("1", Builder.MARTIN, Type.ELECTRIC, Wood.CEDAR,Wood.CEDAR,12);
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("instrumentType", InstrumentType.GUITAR);
+        properties.put("model","1");
+        properties.put("builder",Builder.FENDER);
+        properties.put("type", Type.ACOUSTIC);
+        properties.put("backWood", Wood.CEDAR);
+        properties.put("frontWood",Wood.CEDAR);
+        properties.put("numOfStrings", 12);
+        InstrumentSpec searchSpec = new InstrumentSpec(properties);
         List<Instrument> instruments = inventory.search(searchSpec);
         if(instruments!=null) System.out.println(instruments.size());
     }
 
     private static void initializeInventory(Inventory inventory) {
-        inventory.addInstrument("1",20, new GuitarSpec("1",  Builder.MARTIN, Type.ELECTRIC, Wood.CEDAR, Wood.CEDAR,12));
-        inventory.addInstrument("2",10, new GuitarSpec("1",  Builder.FENDER, Type.ACOUSTIC, Wood.BRAZILLIAN_ROSEWOOD, Wood.INDIAN_ROSEWOOD,6));
-        inventory.addInstrument("3",11, new MandolinSpec("1",  Builder.FENDER, Type.ACOUSTIC, Wood.BRAZILLIAN_ROSEWOOD, Wood.INDIAN_ROSEWOOD,Style.A));
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("instrumentType", InstrumentType.GUITAR);
+        properties.put("model","1");
+        properties.put("builder",Builder.FENDER);
+        properties.put("type", Type.ACOUSTIC);
+        properties.put("backWood", Wood.CEDAR);
+        properties.put("frontWood",Wood.CEDAR);
+        properties.put("numOfStrings", 12);
+        inventory.addInstrument("1",20, new InstrumentSpec(properties));
     }
 }

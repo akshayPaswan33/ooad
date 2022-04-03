@@ -1,6 +1,6 @@
 package com.company.guitarshop;
 
-public abstract class Instrument {
+public class Instrument {
     private final String serialNumber;
     private final double price;
     private final InstrumentSpec instrumentSpec;
@@ -21,5 +21,14 @@ public abstract class Instrument {
 
     public InstrumentSpec getInstrumentSpec() {
         return instrumentSpec;
+    }
+
+    @Override
+    public String toString() {
+        return "Instrument{" +
+                "serialNumber='" + serialNumber + '\'' +
+                ", price=" + price +
+                ", instrumentSpec=" + instrumentSpec +
+                '}';
     }
 }
