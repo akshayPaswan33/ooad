@@ -39,6 +39,12 @@ The Factory Method Pattern defines an interface for creating an object, but lets
 
 The Abstract Factory Pattern provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
+## Command Pattern
+
+The Command Pattern allows you to decouple the requester of an action from the object that actually performs the action. So, here the requester would be the remote control and the object that performs the action would be an instance of one of your vendor classes.
+
+The Command Pattern encapsulates a request (LightOn, GarageOpen) as an object, thereby letting you parameterize other objects with different requests, queue or log requests, and support undoable operations.
+
 
 
 
