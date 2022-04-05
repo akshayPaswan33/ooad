@@ -1,8 +1,18 @@
 package com.company.designpatterns.factorypattern.pizzastore;
 
 public class NYStyleCheesePizza extends Pizza {
-    public NYStyleCheesePizza() {
-        name = "NY Style Sauce and Cheese Pizza"; dough = "Thin Crust Dough";
-        sauce = "Marinara Sauce";
+    private PizzaIngredientFactory pizzaIngredientFactory;
+
+    public NYStyleCheesePizza(
+            PizzaIngredientFactory pizzaIngredientFactory
+    ) {
+        this.pizzaIngredientFactory = pizzaIngredientFactory;
+        name = "NY Style Sauce and Cheese Pizza";
+    }
+
+    @Override
+    void prepare() {
+        dough = pizzaIngredientFactory.createDough();
+        sauce = pizzaIngredientFactory.createSauce();
     }
 }

@@ -5,9 +5,7 @@ public abstract class Pizza {
     String dough;
     String sauce;
 
-    void prepare() {
-        System.out.println("Pizza prepared");
-    }
+    abstract void prepare();
     void cut() {
         System.out.println("Pizza is cut into 4 pieces");
     }
