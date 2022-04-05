@@ -29,5 +29,12 @@ The Decorator Pattern attaches additional responsibilities to an object dynamica
 **Classes should be open
 for extension, but closed for modification.**
 
+## Factory Method Pattern
+
+Instantiation is an activity that shouldn’t always be done in public and can often lead to coupling problems.
+
+The Factory Method Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+
+
 
 
