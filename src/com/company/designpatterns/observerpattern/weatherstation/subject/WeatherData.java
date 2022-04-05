@@ -25,7 +25,7 @@ public class WeatherData implements Subject{
 
     @Override
     public void notifyObservers() {
-        for(Observer observer : observerList) observer.update(temp, humidity, pressure);
+        for(Observer observer : observerList) observer.update();
     }
 
     public void measurementsChanged() {
@@ -37,5 +37,17 @@ public class WeatherData implements Subject{
         this.humidity = humidity;
         this.pressure = pressure;
         measurementsChanged();
+    }
+
+    public float getTemp() {
+        return temp;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public float getPressure() {
+        return pressure;
     }
 }
