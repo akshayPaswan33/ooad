@@ -45,6 +45,17 @@ The Command Pattern allows you to decouple the requester of an action from the o
 
 The Command Pattern encapsulates a request (LightOn, GarageOpen) as an object, thereby letting you parameterize other objects with different requests, queue or log requests, and support undoable operations.
 
+## Adapter and Facade Pattern
+A facade not only simplifies an interface, it decouples a client
+from a subsystem of components.
+Facades and adapters may wrap multiple
+classes, but a facade’s intent is to simplify, while
+an adapter’s is to convert the interface to something different.
+
+## Template method pattern
+
+The Template Method defines the steps of an algorithm and allows subclasses to provide the implementation for one or more steps.
+
 
 
 
